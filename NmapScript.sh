@@ -28,11 +28,11 @@ scantypemenu () {
 	echo -e ${Green} Start Nmap${NC}
 	echo -e ""
 	# Ask for agency name
-	echo -e ${Green}"Organization Name: "${NC}
+	echo -e ${Green}"Target System Name: "${NC}
 	read -e varOrgNameInput
 	echo ""
 	# Ask for subnet file input
-	echo -e ${Green}"Agency subnet file(tab complete): "${NC}
+	echo -e ${Green}"Subnet file(tab complete): "${NC}
 	read -e varSubnetFileInput
     dos2unix $varSubnetFileInput
 	echo ""
