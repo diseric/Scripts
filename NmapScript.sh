@@ -60,6 +60,9 @@ scantypemenu () {
 	}
 	nmapspeedmenu
 	echo ""
+	mkdir -p /root/working/internal
+	mkdir -p /root/working/external
+	
 	varExclusions=/root/working/nmap-excludefile.txt
 	varExternalOutputPath=/root/working/external/nmap/
 	varExternalEyeWitnessPath=/root/working/external/eyewitness
