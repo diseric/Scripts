@@ -58,18 +58,21 @@ scantypemenu () {
 			nmapspeedmenu
 		fi
 	}
+	
 	nmapspeedmenu
 	echo ""
-	mkdir -p /root/working/internal
-	mkdir -p /root/working/external
+	mkdir -p /working/internal
+	mkdir -p /working/external
+	mkdir -p /working/internal/nmap
+	mkdir -p /working/external/nmap
 	
-	varExclusions=/root/working/nmap-excludefile.txt
-	varExternalOutputPath=/root/working/external/nmap/
-	varExternalEyeWitnessPath=/root/working/external/eyewitness
-	varInternalOutputPath=/root/working/internal/nmap/
-	varInternalEyeWitnessPath=/root/working/internal/eyewitness
-	varTempOutPutFile=/root/working/internal/nmap/"$varOrgNameInput"_tcp445.txt
-	varTargetOutputFile=/root/working/internal/nmap/smbtgts.txt
+	varExclusions=/working/nmap-excludefile.txt
+	varExternalOutputPath=/working/external/nmap/
+	varExternalEyeWitnessPath=/working/external/eyewitness
+	varInternalOutputPath=/working/internal/nmap/
+	varInternalEyeWitnessPath=/working/internal/eyewitness
+	varTempOutPutFile=/working/internal/nmap/"$varOrgNameInput"_tcp445.txt
+	varTargetOutputFile=/working/internal/nmap/smbtgts.txt
   	varUserAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36"
 
 	echo ""
