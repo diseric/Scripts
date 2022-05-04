@@ -121,7 +121,7 @@ scantypemenu () {
 		scantypemenu
         elif [ "$scantypemenuinput" = "7" ]; then
 			echo -e ${Green}"Internal Top 2000 Ports Scan Selected"${NC}
-				nmap -vv -O -sV -sC -sT -A $varNmapSpeed --top-ports 2000 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varInternalOutputPath"$varOrgNameInput"_int_top2000ports_$varSubnetFileInput -iL $varSubnetFileInput --excludefile $varExclusions
+				nmap -vv -O -sV -sC -sT -A $varNmapSpeed --top-ports 2000 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varInternalOutputPath"$varOrgNameInput"_int_top2000ports -iL $varSubnetFileInput --excludefile $varExclusions
 		scantypemenu
         elif [ "$scantypemenuinput" = "8" ]; then
 			echo -e ${Green}"Internal All Ports Scan Selected"${NC}
