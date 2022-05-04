@@ -98,15 +98,15 @@ scantypemenu () {
 		./EyeWitness.py --user-agent "$varUserAgent" --web -x $varExternalOutputPath"$varOrgNameInput"_ext_eyewitness.xml --no-prompt --timeout 15 --results 100 -d $varExternalEyeWitnessPath
 		elif [ "$scantypemenuinput" = "2" ]; then
 			echo -e ${Green}"External Insecure Ports Scan Selected"${NC}
-				nmap -vv -O -sV -sC -sT -A -Pn $varNmapSpeed -p 21,23,69,3389,5900 --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varExternalOutputPath"$varOrgNameInput"_ext_insecureports_$varSubnetFileInput -iL $varSubnetFileInput --excludefile $varExclusions
+				nmap -vv -O -sV -sC -sT -A -Pn $varNmapSpeed -p 21,23,69,3389,5900 --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varExternalOutputPath"$varOrgNameInput"_ext_insecureports -iL $varSubnetFileInput --excludefile $varExclusions
 		scantypemenu
         elif [ "$scantypemenuinput" = "3" ]; then
 			echo -e ${Green}"External Top 2000 Ports Scan Selected"${NC}
-				nmap -vv -O -sV -sC -sT -A -Pn $varNmapSpeed --top-ports 2000 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varExternalOutputPath"$varOrgNameInput"_ext_top2000ports_$varSubnetFileInput -iL $varSubnetFileInput --excludefile $varExclusions
+				nmap -vv -O -sV -sC -sT -A -Pn $varNmapSpeed --top-ports 2000 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varExternalOutputPath"$varOrgNameInput"_ext_top2000ports -iL $varSubnetFileInput --excludefile $varExclusions
 		scantypemenu
 		elif [ "$scantypemenuinput" = "4" ]; then
 			echo -e ${Green}"External All Ports Scan Selected"${NC}
-				nmap -vv -O -sV -sC -sT -A -Pn $varNmapSpeed -p 0-65535 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varExternalOutputPath"$varOrgNameInput"_ext_allports_$varSubnetFileInput -iL $varSubnetFileInput --excludefile $varExclusions
+				nmap -vv -O -sV -sC -sT -A -Pn $varNmapSpeed -p 0-65535 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varExternalOutputPath"$varOrgNameInput"_ext_allports -iL $varSubnetFileInput --excludefile $varExclusions
 		scantypemenu
 		elif [ "$scantypemenuinput" = "5" ]; then
 			echo -e ${Green}" Internal Eyewitness Scan Selected"${NC}
@@ -117,7 +117,7 @@ scantypemenu () {
 		scantypemenu
         elif [ "$scantypemenuinput" = "6" ]; then
 			echo -e ${Green}"Internal Insecure Ports Scan Selected"${NC}
-				nmap -vv -O -sV -sC -sT -A $varNmapSpeed -p 21,23 --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varInternalOutputPath"$varOrgNameInput"_int_insecureports_$varSubnetFileInput -iL $varSubnetFileInput --excludefile $varExclusions
+				nmap -vv -O -sV -sC -sT -A $varNmapSpeed -p 21,23 --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varInternalOutputPath"$varOrgNameInput"_int_insecureports -iL $varSubnetFileInput --excludefile $varExclusions
 		scantypemenu
         elif [ "$scantypemenuinput" = "7" ]; then
 			echo -e ${Green}"Internal Top 2000 Ports Scan Selected"${NC}
@@ -125,7 +125,7 @@ scantypemenu () {
 		scantypemenu
         elif [ "$scantypemenuinput" = "8" ]; then
 			echo -e ${Green}"Internal All Ports Scan Selected"${NC}
-				nmap -vv -O -sV -sC -sT -A $varNmapSpeed -p 0-65535 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varInternalOutputPath"$varOrgNameInput"_int_allports_$varSubnetFileInput -iL $varSubnetFileInput --excludefile $varExclusions
+				nmap -vv -O -sV -sC -sT -A $varNmapSpeed -p 0-65535 --script http-methods --script-args http.useragent="$varUserAgent" --open --min-hostgroup 256 --min-parallelism 32 --stylesheet=https://svn.nmap.org/nmap/docs/nmap.xsl -oA $varInternalOutputPath"$varOrgNameInput"_int_allports -iL $varSubnetFileInput --excludefile $varExclusions
 		scantypemenu
         elif [ "$scantypemenuinput" = "9" ]; then
 			echo -e ${Green}"Internal SMB Targets Scan Selected"${NC}
