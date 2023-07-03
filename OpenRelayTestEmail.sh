@@ -68,12 +68,13 @@ echo -e "Enter IP address of SMTP server"
     echo -e "Input recieving email address"
     read -e varRecievingEmail
 
-read -r -p "Press one send a test email or 2 to test with socials?" response
+echo -e "Press 1 send a test email or 2 to test with socials? "
+read -e response
 if [ "$response" = "1" ];then 
 	echo -e "Input Text to include in body (ie: SMTP Openrelay)"
     read -e varBody
-    swaks --to $varRecievingEmail --from $varSenderEmail --header "Subject: OpenRelay test $varSMTPServer" --body $varBody --server $varSMTPServer
-elif
+    swaks --to $varRecievingEmail --from $varSenderEmail --header "Subject: OpenRelay test $varSMTPServer" --body "$varBody" --server $varSMTPServer
+elif [ "$response" = "2" ];then 
     echo -e "How many socials would you like to generate?"
 	read -e varNumberofSocials
 	echo -e "Enter IP address of SMTP server"
@@ -84,7 +85,7 @@ elif
                 echo -e "${SSN:0:3}-${SSN:3:2}-${SSN:5:4}" >> $varNumberofSocials-ssn.txt
 		done
 		swaks --to $varRecievingEmail --from $varSenderEmail --header "Subject: OpenRelay test $varSMTPServer" --body @$varNumberofSocials-ssn.txt --server $varSMTPServer
-else 
+else
 	echo -e "Incorrect Selection try again"
 fi
 
